@@ -1,17 +1,27 @@
 [
     {
-        "body": "Super helpful, thanks!"
+        "body": "Super helpful, thanks!",
+        "user_id": 1,
+        "post_id": 1
     },
     {
-        "body": "This article was just soooo informative"
+        "body": "This article was just soooo informative",
+        "user_id": 2,
+        "post_id": 2
     },
     {
-        "body": "...why did I not think of that sooner?"
+        "body": "...why did I not think of that sooner?",
+        "user_id": 3,
+        "post_id": 3
     },
     {
-        "body": "Is your fridge running? Checkout my website to learn how to catch it: https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        "body": "Is your fridge running? Checkout my website to learn how to catch it: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "user_id": 4,
+        "post_id": 4
     },
     {
-        "body": "Super helpful, thanks!"
+        "body": "Super helpful, thanks!",
+        "user_id": 5,
+        "post_id": 5
     }
 ]
