@@ -35,6 +35,27 @@ router.get("/login", (req, res) => {
 
 router.get("/signup", (req, res) => {
   res.render("signup");
-})
+});
+
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      // attributes: { exclude: ["password"] },
+      order: [["id", "DESC"]],
+    });
+
+    const posts = postData.map((blogposts) => blogposts.get({ plain: true }));
+
+    res.render("dashboard", {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

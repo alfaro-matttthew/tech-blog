@@ -6,24 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
   <link rel="stylesheet" href="/css/jass.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
+  <header class="bg-gray-400 flex flex-col p-2">
+    <h1 class="text-3xl">
       Tech Blog
     </h1>
+    <div class="">
+      {{#if logged_in}}
+      <nav>
+        <button class="pr-2" id="blogFeed">home page</button>
+        <button class="pr-2" id="dashboard">dashboard</button>
+        <button class="pr-2" id="logout">logout</button>
+      </nav>
+      {{else}}
+      <nav>
+        <button class="pr-2" id="login">login</button>
+        <button class="pr-2" id="signup">signup</button>
+      </nav>
+      {{/if}}
+    </div>
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{else}}
-    <nav>
-      <button class="btn" id="login">login</button>
-      <button class="btn" id="signup">signup</button>
-    </nav>
-    {{/if}}
+    
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
@@ -34,10 +40,12 @@
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+    <script src="/js/blogFeed.js"></script>
+    <script src="/js/dashboardLink.js"></script>
+    <script src="/js/logout.js"></script>
   {{else}}
-   <script src="/js/loginLink.js"></script>
-      <script src="/js/signupLink.js"></script>
+    <script src="/js/loginLink.js"></script>
+    <script src="/js/signupLink.js"></script>
   {{/if}}
 </body>
 
