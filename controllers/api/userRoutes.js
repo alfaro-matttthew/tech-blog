@@ -1,8 +1,31 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const express = require('express');
+const router = express.Router();
+const sequelize = require('sequelize');
+const { User } = require("../../models");
+
+// router.get("/sign_up", (req, res) => {
+//   try {
+//     res.sendFile(path.join(__dirname, "/views/signup.handlebars"));
+//     res.status(200);
+//   } catch (err) {
+//     console.log("Error while redirecting: ", err);
+//     res.status(500).json("Server side Error: ", err);
+//   }
+// });
+
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.json(users);
+  } catch (err) {
+    console.log("Error while signing up: ", err);
+    res.status(500).json("Server side Error: ", err);
+  }
+})
+
 
 // Create a new user //
-router.post('/', async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
       name: req.body.name,
@@ -10,18 +33,18 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
 
-      req.status(200).json(userData);
-    });
+      res.status(200).json(userData);
+    // });
   } catch (err) {
-    console.log('Error while signing up: ', err);
-    res.status(500).json('Server side Error: ', err);
+    console.log("Error while signing up: ", err);
+    res.status(500).json("Server side Error: ", err);
   }
-})
+});
 
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -29,7 +52,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
@@ -39,7 +62,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
@@ -47,16 +70,15 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
 
+      res.json({ user: userData, message: "You are now logged in!" });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     // Remove the session variables
     req.session.destroy(() => {
