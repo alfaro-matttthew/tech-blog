@@ -25,28 +25,31 @@ document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
+
+
+
   // ///////////////////////////////// //
 
 
-  const signUpBtnHandler = async (event) => {
-    // Stop the browser from submitting the form so we can do so with JavaScript
-    event.preventDefault();
+  // const signUpBtnHandler = async (event) => {
+  //   // Stop the browser from submitting the form so we can do so with JavaScript
+  //   event.preventDefault();
   
    
-      const response = await fetch('/api/users/login', {
-        method: 'GET',
-        // body: JSON.stringify({ email, password }),
-        // headers: { 'Content-Type': 'application/json' },
-      });
+  //     const response = await fetch('/api/users/login', {
+  //       method: 'GET',
+  //       // body: JSON.stringify({ email, password }),
+  //       // headers: { 'Content-Type': 'application/json' },
+  //     });
   
-      if (response.ok) {
-        document.location.replace('http://www.google.com/');
-      } else {
-        alert('Failed to log in');
-      }
+  //     if (response.ok) {
+  //       document.location.replace('http://www.google.com/');
+  //     } else {
+  //       alert('Failed to log in');
+  //     }
     
-  };
+  // };
   
-  document
-    .querySelector('#sign-up-button')
-    .addEventListener('click', signUpBtnHandler);
+  // document
+  //   .querySelector('#sign-up-button')
+  //   .addEventListener('click', signUpBtnHandler);
