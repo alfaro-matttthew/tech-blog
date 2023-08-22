@@ -1,27 +1,37 @@
 [
   {
-  "title": "Sequelize 101",
-  "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "user_id": 1
+    "id": 1,
+    "title": "The Basics of HTML",
+    "body": "HTML (Hypertext Markup Language) is the foundation of any web page. It's used to structure content on the web and define the relationships between different elements.",
+    "date": "2023-08-09",
+    "user_id": 123
   },
   {
-  "title": "JavaScript v. Java",
-  "body": "Tristique senectus et netus et malesuada fames ac turpis egestas. Vulputate enim nulla aliquet porttitor. Sed arcu non odio euismod lacinia at quis risus sed. Id donec ultrices tincidunt arcu non. Eu nisl nunc mi ipsum faucibus vitae aliquet nec. Nibh sed pulvinar proin gravida. Massa tempor nec feugiat nisl pretium fusce id. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Odio facilisis mauris sit amet massa vitae tortor.",
-  "user_id": 2
+    "id": 2,
+    "title": "CSS Styling Tips",
+    "body": "CSS (Cascading Style Sheets) allows you to control the visual presentation of your web pages. Use classes and IDs to target specific elements and apply styles.",
+    "date": "2023-08-10",
+    "user_id": 123
   },
   {
-  "title": "Do you really know Objects?",
-  "body": "Vitae elementum curabitur vitae nunc sed. At varius vel pharetra vel turpis nunc eget lorem. Pharetra vel turpis nunc eget. Curabitur vitae nunc sed velit dignissim sodales. Cursus eget nunc scelerisque viverra mauris. Et ultrices neque ornare aenean euismod elementum. Aliquet nec ullamcorper sit amet risus nullam eget felis eget.",
-  "user_id": 3
+    "id": 3,
+    "title": "Introduction to JavaScript",
+    "body": "JavaScript is a versatile programming language that adds interactivity to your web pages. You can use it to create dynamic content, handle user interactions, and more.",
+    "date": "2023-08-11",
+    "user_id": 124
   },
   {
-  "title": "Top 5 Node.js Modules",
-  "body": "Nullam vitae mi sit amet lacus scelerisque consectetur a nec quam. Integer lobortis, ligula sit amet pulvinar malesuada, magna massa aliquet turpis, id auctor sem dui eu mauris. Vestibulum malesuada nisi sed urna semper, ac facilisis metus pretium. Sed non molestie nisi, eu scelerisque diam. Mauris nec iaculis sapien, eu vulputate mi. Duis ac lacus sit amet ligula eleifend porttitor et congue ligula. Maecenas eros lacus, porttitor eget erat in, blandit commodo eros. Morbi massa urna, elementum eget sollicitudin in, molestie nec felis. Integer et elit tortor.",
-  "user_id": 4
+    "id": 4,
+    "title": "Debugging Techniques",
+    "body": "Debugging is an essential skill for developers. Learn how to use browser developer tools, console.log, and breakpoints to find and fix errors in your code.",
+    "date": "2023-08-12",
+    "user_id": 124
   },
   {
-  "title": "HTML and Handlebars",
-  "body": "Maecenas quis dolor id libero rutrum mollis at ut arcu. Aenean eu tristique turpis. Curabitur tempor malesuada felis eget pretium. Suspendisse potenti. Aenean dictum rutrum tempus. Cras a vulputate magna. Mauris interdum arcu a lobortis blandit. Aliquam at enim in orci scelerisque dictum. Donec vel orci hendrerit, iaculis nibh non, ultrices odio. Proin tincidunt enim ante, nec tempus sem mollis vitae. Donec dignissim eros quis eros pellentesque, at varius lectus volutpat. Nullam sed leo posuere, volutpat eros at, mollis elit. Suspendisse nec nisi eget purus convallis dictum et id sem. Sed nibh neque, varius a odio eu, porta tincidunt enim. Nulla vestibulum quis lectus porttitor auctor.    ",
-  "user_id": 5
+    "id": 5,
+    "title": "Version Control with Git",
+    "body": "Git is a powerful version control system that helps you manage and track changes to your code. Learn the basics of branching, committing, and collaborating with others.",
+    "date": "2023-08-13",
+    "user_id": 125
   }
 ]

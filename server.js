@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-// const routes = require('./controllers/api/userRoutes');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -19,7 +18,7 @@ const hbs = exphbs.create({ helpers });
 // Configure and link a session object with the sequelize store
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {maxAge: 720000}, /* 12 hours */
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

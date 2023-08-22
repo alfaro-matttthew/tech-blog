@@ -1,0 +1,36 @@
+<div class="p-5 bg-gray-100 rounded-lg shadow flex flex-col">
+  <div class="mb-5 border-b-2 border-gray-300 flex justify-between">
+    <div class="">
+      <h2 class="text-2xl">{{{get_emoji}}} {{post.title}}</h2>
+      <p class="text-gray-600">{{post.user.name}}</p>
+    </div>
+    <div class="">
+      <p class="text-sm text-gray-600">{{post.formattedDate}}</p>
+    </div>
+  </div>
+  <p> {{post.body}}</p>
+  <div class="mt-5 flex flex-col items-start">
+      <h3 class="mb-2 text-gray-600">Comments</h3>
+      <div>
+        <form data-id="{{this.id}}" id="comment-form">
+          <div class="form-group">
+            <label for="password-signup">Write A Comment</label>
+            <input class="form-input" type="text" id="add-comment" />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">add comment</button>
+          </div>
+        </form>
+      </div>
+      {{#each post.comments as |comment|}}
+        <div class="mb-2 p-2 rounded-lg shadow bg-white flex flex-col">
+          <span class="text-sm text-grayy-600 font-bold"> {{comment.user.name}}</span>
+          <span class="text-xs text-gray-400"> {{comment.formattedDate}}</span>
+          <span> {{comment.body}}</span>
+        </div>
+      {{/each}}
+  </div>
+
+</div>
+
+<script src="/js/createComment.js"></script>
