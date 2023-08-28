@@ -3,17 +3,17 @@ const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 const dayjs = require("dayjs");
 
-// Prevent non logged in users from viewing the homepage
+// Home Page
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
       // attributes: { exclude: ["password"] },
       order: [["id", "DESC"]],
-      include: User
+      include: User,
     });
 
     const posts = postData.map((blogposts) => blogposts.get({ plain: true }));
-    console.log(posts);
+    // console.log(posts);
     for (const post of posts) {
       post.formattedDate = new Date(post.date).toLocaleDateString("en-US", {
         year: "numeric",
@@ -24,7 +24,6 @@ router.get("/", async (req, res) => {
     // console.log(posts);
     res.render("homepage", {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -33,32 +32,46 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Login
 router.get("/login", (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
     res.redirect("/");
     return;
   }
-
   res.render("login");
 });
 
+// Sign Up
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// Dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      // attributes: { exclude: ["password"] },
-      order: [["id", "DESC"]],
+    console.log('THis is also working');
+    const user_id = req.session.user_id;
+
+    const fetchUserData = async (user_id) => {
+      const user = await User.findByPk(user_id, {
+        include: [
+        Post,
+        {
+          model: Comment,
+          include: User,
+        },
+      ],
     });
+      return user;
+    }
 
-    const posts = postData.map((blogposts) => blogposts.get({ plain: true }));
+    const userData = await fetchUserData(user_id);
 
+    const plainUser = userData.toJSON();
+
+    console.log(plainUser);
     res.render("dashboard", {
-      posts,
-      // Pass the logged in flag to the template
+      user: plainUser,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -67,6 +80,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// Single Post
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -80,7 +94,7 @@ router.get("/post/:id", async (req, res) => {
     });
     const post = postData.get({ plain: true });
 
-    post.formattedDate = dayjs(post.date).format("MMMM D, YYYY"); 
+    post.formattedDate = dayjs(post.date).format("MMMM D, YYYY");
 
     for (const comment of post.comments) {
       comment.formattedDate = dayjs(comment.date).format("MMMM D, YYYY");
@@ -96,5 +110,6 @@ router.get("/post/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;

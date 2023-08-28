@@ -1,52 +1,57 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/jass.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body class="bg-gray-200">
-  <header class="h-24 bg-gradient-to-r from-blue-400 to-blue-300 flex flex-col items-center p-2">
-    <h1 class="w-5/6 text-6xl text-gray-100 font-bold">
-      Tech Blog
-    </h1>
-    <div class="w-5/6">
-      {{#if logged_in}}
-      <nav class="text-gray-800">
-        <button class="pr-2 hover:text-gray-200" id="blogFeed">home page</button>
-        <button class="pr-2 hover:text-gray-200" id="dashboard">dashboard</button>
-        <button class="pr-2 hover:text-gray-200" id="logout">logout</button>
-      </nav>
-      {{else}}
-      <nav class="text-gray-800 ">
-        <button class="pr-2 hover:text-gray-200" id="login">login</button>
-        <button class="pr-2 hover:text-gray-200" id="signup">signup</button>
-      </nav>
-      {{/if}}
-    </div>
-    <!-- Only display the logout button if the user is logged in -->
-    
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+  <body class="bg-gray-200">
+    <header
+      class="h-24 bg-gradient-to-r from-blue-400 to-blue-300 flex flex-col items-center p-2"
+    >
+      <h1 class="w-5/6 text-6xl text-gray-100 font-bold">
+        Tech Blog
+      </h1>
+      <div class="w-5/6">
+        {{#if logged_in}}
+          <nav class="text-gray-800">
+            <a class="pr-2 hover:text-gray-200" id="blogFeed">home page</a>
+            <a
+              href="/dashboard"
+              class="pr-2 hover:text-gray-200"
+              id="dashboard"
+            >dashboard</a>
+            <a class="pr-2 hover:text-gray-200" id="logout">logout</a>
+          </nav>
+        {{else}}
+          <nav class="text-gray-800">
+            <a class="pr-2 hover:text-gray-200" id="login">login</a>
+            <a class="pr-2 hover:text-gray-200" id="signup">signup</a>
+          </nav>
+        {{/if}}
+      </div>
+      <!-- Only display the logout button if the user is logged in -->
 
-  <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-    <script src="/js/blogFeed.js"></script>
-    <script src="/js/dashboardLink.js"></script>
-    <script src="/js/logout.js"></script>
-  {{else}}
-    <script src="/js/loginLink.js"></script>
-    <script src="/js/signupLink.js"></script>
-  {{/if}}
-</body>
+    </header>
+    <main class="container container-fluid mt-5">
+      {{{body}}}
+    </main>
+    <footer>
+
+    </footer>
+
+    <!-- Only include the logout script if the user is logged in -->
+    {{#if logged_in}}
+      <script src="/js/blogFeed.js"></script>
+      <script src="/js/dashboardLink.js"></script>
+      <script src="/js/logout.js"></script>
+    {{else}}
+      <script src="/js/loginLink.js"></script>
+      <script src="/js/signupLink.js"></script>
+    {{/if}}
+  </body>
 
 </html>

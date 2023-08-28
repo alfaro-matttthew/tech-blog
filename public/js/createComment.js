@@ -10,13 +10,14 @@ const commentFormHandler = async (event) => {
   const postID = element.getAttribute("data-id");
 
   if (comment) {
-    console.log(postID);
+    console.log(comment);
     // Send the e-mail and password to the server
     const response = await fetch(`/api/comments/${postID}`, {
       method: "POST",
       body: JSON.stringify({ comment }),
       headers: { "Content-Type": "application/json" },
     });
+
 
     if (response.ok) {
       document.location.replace(`/post/${postID}`);

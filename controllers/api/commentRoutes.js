@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router();
 const sequelize = require('sequelize');
 const { Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post("/:id", async (req, res) => {
+
+router.post("/:id", withAuth, async (req, res) => {
     console.log("route hit");
     console.log(req.params.id)
     try {
         const commentData = await Comment.create({
             body: req.body.comment,
-            date: Date.now,
+            date: Date.now(),
             user_id: req.session.user_id,
             post_id: req.params.id
         });

@@ -1,0 +1,62 @@
+{
+    dataValues: {
+      id: 126,
+      name: 'Matthew',
+      email: 'me@mail.com',
+      password: '$2b$10$yQx84wBXpPKUIgouaawRS.8Gl099uuHD17X6qTA0UkZzLUnE6Z7ZC',
+      posts: [],
+      comments: [ [comment], [comment], [comment] ]
+    },
+    _previousDataValues: {
+      id: 126,
+      name: 'Matthew',
+      email: 'me@mail.com',
+      password: '$2b$10$yQx84wBXpPKUIgouaawRS.8Gl099uuHD17X6qTA0UkZzLUnE6Z7ZC',
+      posts: [],
+      comments: [ [comment], [comment], [comment] ]
+    },
+    uniqno: 1,
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      include: [ [Object], [Object] ],
+      includeNames: [ 'posts', 'comments' ],
+      includeMap: { posts: [Object], comments: [Object] },
+      includeValidated: true,
+      attributes: [ 'id', 'name', 'email', 'password' ],
+      raw: true
+    },
+    isNewRecord: false,
+    posts: [],
+    comments: [
+      comment {
+        dataValues: [Object],
+        _previousDataValues: [Object],
+        uniqno: 1,
+        _changed: Set(0) {},
+        _options: [Object],
+        isNewRecord: false,
+        user: [user]
+      },
+      comment {
+        dataValues: [Object],
+        _previousDataValues: [Object],
+        uniqno: 1,
+        _changed: Set(0) {},
+        _options: [Object],
+        isNewRecord: false,
+        user: [user]
+      },
+      comment {
+        dataValues: [Object],
+        _previousDataValues: [Object],
+        uniqno: 1,
+        _changed: Set(0) {},
+        _options: [Object],
+        isNewRecord: false,
+        user: [user]
+      }
+    ]
+  }
