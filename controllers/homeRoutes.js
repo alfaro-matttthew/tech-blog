@@ -55,7 +55,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const fetchUserData = async (user_id) => {
       const user = await User.findByPk(user_id, {
         include: [
-        Post,
+        {
+          model: Post,
+          include: Post
+        },
         {
           model: Comment,
           include: User,
