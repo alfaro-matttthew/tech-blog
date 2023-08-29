@@ -50,15 +50,12 @@ router.get("/signup", (req, res) => {
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     console.log('THis is also working');
-    const user_id = req.session.user_id;
+    const user_id = await req.session.user_id;
 
     const fetchUserData = async (user_id) => {
       const user = await User.findByPk(user_id, {
         include: [
-        {
-          model: Post,
-          include: Post
-        },
+        Post,
         {
           model: Comment,
           include: User,
@@ -72,7 +69,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const plainUser = userData.toJSON();
 
-    console.log(plainUser);
+    console.log(Post);
     res.render("dashboard", {
       user: plainUser,
       logged_in: req.session.logged_in,

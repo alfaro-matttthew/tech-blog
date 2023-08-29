@@ -11,12 +11,9 @@ router.post("/create", async (req, res) => {
           date: Date.now(),
           user_id: req.body.user_id
         });
-    
-        // req.session.save(() => {
-        //   req.session.loggedIn = true;
-    
-          res.status(200).json(postData);
-        // });
+
+        res.status(200).json(postData);
+        
       } catch (err) {
         console.log("Error while posting: ", err);
         res.status(500).json("Server side Error: ", err);

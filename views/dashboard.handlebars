@@ -4,15 +4,14 @@
 <div class="p-5 bg-gray-100 rounded-lg shadow flex flex-col">
     <h3 class="text-2xl">Hello, {{user.name}}!</h3>
     <div class="flex justify-between">
-        <div>
-            <p>hello</p>
-            {{#each user.posts as |post|}}
-                <div class="flex flex-col row align-center mb-5">
-                    {{> blogpost this}}
-                </div>
-            {{/each}}
+        <div class="w-5/6 pr-5 flex flex-col">
+        {{#each user.posts as |post|}}
+            <div class="mb-5">
+                {{> dashboardBlogpost this}}
+            </div>
+        {{/each}}
         </div>
-        <div class="w-96 my-5 border rounded-lg bg-blue-100 flex flex-col">
+        <div class="w-96 border rounded-lg bg-blue-100 flex flex-col">
             <h4 class="pl-5 pt-5">Write a New Blog</h4>
             {{!-- Form --}}
             <form class="flex flex-col items-start">
@@ -32,7 +31,6 @@
             </form>
         </div>
     </div>
-    <p class="py-5 border-y border-gray-300"> {{post.body}}</p>
 </div>
 
 <script src="../public/js/createPost.js"></script>
