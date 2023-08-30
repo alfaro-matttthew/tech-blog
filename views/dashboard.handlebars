@@ -25,6 +25,10 @@
                     <label for="content-newPost">Blog Title:</label>
                     <input class="form-input" type="textbox" id="content-newPost" />
                 </div>
+                {{!-- Hidden Input --}}
+                <div class="form-group px-5 invisible flex">
+                    <input class="form-input h-8" type="text" id="user_id" value="{{user.id}}"/>
+                </div>
                 <div class="px-5 form-group">
                     <button id="new-post" class="btn btn-primary" type="submit">post</button>
                 </div>

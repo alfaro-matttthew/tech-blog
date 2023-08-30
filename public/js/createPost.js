@@ -3,7 +3,7 @@ const newPostHandler = async (event) => {
   
     const title = document.querySelector('#title-newPost').value.trim();
     const body = document.querySelector('#content-newPost').value.trim();
-    const user_id = req.session.user_id;
+    const user_id = document.querySelector('#user_id').value.trim();
     console.log(user_id);
   
     if (title && body) {
