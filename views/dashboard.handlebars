@@ -14,7 +14,7 @@
         <div class="w-96 border rounded-lg bg-blue-100 flex flex-col">
             <h4 class="pl-5 pt-5">Write a New Blog</h4>
             {{!-- Form --}}
-            <form class="flex flex-col items-start">
+            <form class="flex flex-col items-start" id="new-post" >
                 {{!-- Form Title Input --}}
                 <div class="form-group px-5 flex">
                     <label for="title-newPost">Blog Title:</label>
@@ -30,7 +30,7 @@
                     <input class="form-input h-8" type="text" id="user_id" value="{{user.id}}"/>
                 </div>
                 <div class="px-5 form-group">
-                    <button id="new-post" class="btn btn-primary" type="submit">post</button>
+                    <button class="btn btn-primary" type="submit">post</button>
                 </div>
             </form>
         </div>
