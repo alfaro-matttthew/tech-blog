@@ -1,4 +1,10 @@
     <div class="pt-5 pb-2 flex">
       <h2 class="px-4 border-l-4 border-gray-100 shadow bg-gradient-to-r from-blue-400 to-blue-300 text-xl tracking-wide uppercase text-gray-100 font-bold">Home Page</h2>
     </div>
-
+        <div class="w-5/6 pr-5 flex flex-col">
+        {{#each posts as |post|}}
+            <div class="mb-5">
+                {{> blogpost this}}
+            </div>
+        {{/each}}
+        </div>
